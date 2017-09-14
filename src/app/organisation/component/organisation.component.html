@@ -1,0 +1,36 @@
+<app-dashlayout></app-dashlayout>
+ 
+<div class="kendo">
+    <div class="container">
+
+           <div class="addbutton">
+            <app-addmodal></app-addmodal>
+ 
+
+        </div>
+        <kendo-grid [data]="gridData" [pageSize]="state.take" [skip]="state.skip" [sort]="state.sort" [filter]="state.filter" [sortable]="true"
+            [pageable]="true" [height]="400" [filterable]="true" (pageChange)="pageChange($event)" (dataStateChange)="dataStateChange($event)">
+            <kendo-grid-column field="OrgId" title="ID" width="40" [filterable]="false">
+            </kendo-grid-column>
+            <kendo-grid-column field="OrgName" title="Organisatin Name" width="250">
+            </kendo-grid-column>
+            <kendo-grid-column field="ShortName" title="Short Name">
+            </kendo-grid-column>
+            <kendo-grid-column field="FirstName" title="First Name" width="80" [filterable]="false">
+            </kendo-grid-column>
+            <kendo-grid-column field="LastName" title="Last Name" width="80" [filterable]="false">
+            </kendo-grid-column>
+            <!--<kendo-grid-column field="Discontinued" title="Discontinued" width="120" filter="boolean" [filterable]="false">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    <input type="checkbox" [checked]="dataItem.Discontinued" disabled/>
+                </ng-template>
+            </kendo-grid-column>-->
+            <kendo-grid-column field="Actions" title="Actions" width="150" [filterable]="false">
+                <ng-template kendoGridCellTemplate let-dataAction>
+                    <button class="btn btn-outline-warning btn-sm">Edit</button>
+                    <button class="btn btn-outline-danger btn-sm">Delete</button>
+                </ng-template>
+            </kendo-grid-column>
+        </kendo-grid>
+    </div>
+</div>
